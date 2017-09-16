@@ -5,6 +5,7 @@ import * as teamActions from './actions/teamActions'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import RealTable from './components/RealTable'
+import FakeTable from './components/FakeTable'
 
 class App extends Component {
 
@@ -14,11 +15,15 @@ class App extends Component {
       .then(teams => this.props.getTeams(teams))
   }
   render() {
-    console.log(this.props.teams);
     return (
       <div className="App">
         <RealTable
           teams= {this.props.teams}
+          addTeam={this.props.addTeam}
+        />
+      <FakeTable
+          teams= {this.props.fakeTableTeams}
+          removeTeam = {this.props.removeTeam}
         />
       </div>
     );
@@ -29,6 +34,7 @@ class App extends Component {
 function mapStateToProps (state) {
   return {
     teams: state.teams.teams,
+    fakeTableTeams: state.teams.fakeTableTeams,
   }
 }
 
@@ -42,7 +48,9 @@ function mapDispatchToProps (dispatch) {
 
 App.propTypes = {
   teams: PropTypes.arrayOf(PropTypes.any),
-
+  fakeTableTeams: PropTypes.arrayOf(PropTypes.any),
+  addTeam: PropTypes.func.isRequired,
+  removeTeam: PropTypes.func.isRequired,
 }
 
 App.defaultProps = {

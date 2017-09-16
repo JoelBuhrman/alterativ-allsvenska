@@ -8,3 +8,21 @@ export function getTeams (teams) {
     })
   }
 }
+
+export function addTeam (team) {
+  return (dispatch) => {
+    dispatch({
+      type: types.ADD_TEAM,
+      payload: team,
+    })
+  }
+}
+
+export function removeTeam (team) {
+  return (dispatch) => {
+    dispatch({
+      type: types.REMOVE_TEAM,
+      payload: team,
+    })
+  }
+}

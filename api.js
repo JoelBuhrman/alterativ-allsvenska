@@ -47,6 +47,7 @@ api.get('/api/getTeams', (req, res) => {
     }
 
   })
+  console.log(teams);
   res.json(teams)
   })
 
