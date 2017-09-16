@@ -13,7 +13,10 @@ api.get('/api/getTeams', (req, res) => {
   axios.get('http://svenskfotboll.se/allsvenskan/spelprogram/').then( (response) => {
   let $ = cheerio.load(response.data);
   let teams = []
+  let lastGame = null
   $('tr td a').each( (i, elm) => {
+
+
     if((i-1)%3 === 0){
       if((i-1)/3 < 8){
         teams.push({
@@ -25,12 +28,24 @@ api.get('/api/getTeams', (req, res) => {
           games: [],
         })
       }
+      lastGame = $(elm).text()
     }
-    for(let i = 0 ; i< teams.length; i++){
-      if($(elm).text().indexOf(teams[i].team) !== -1){
-        teams[i].games.push($(elm).text())
+    if(((i-1)%3 === 1) && ($(elm).text().indexOf('-') !== -1) && ($(elm).text().length <= 6) ){
+      for(let j = 0 ; j< teams.length; j++){
+        if(lastGame.indexOf(teams[j].team) !== -1){
+          teams[j].games.push({
+            home: lastGame.substring(0, lastGame.indexOf('-')-1),
+            away: lastGame.substring(lastGame.indexOf('-')+2, lastGame.length),
+            result: {
+              home: $(elm).text().substring(0, $(elm).text().indexOf('-')-1),
+              away: $(elm).text().substring($(elm).text().indexOf('-')+2, $(elm).text().length),
+            }
+          }
+        )
+        }
       }
     }
+
   })
   res.json(teams)
   })

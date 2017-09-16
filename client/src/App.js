@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { bindActionCreators } from 'redux'
 import * as teamActions from './actions/teamActions'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
+import RealTable from './components/RealTable'
 
 class App extends Component {
 
@@ -15,15 +14,12 @@ class App extends Component {
       .then(teams => this.props.getTeams(teams))
   }
   render() {
+    console.log(this.props.teams);
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <RealTable
+          teams= {this.props.teams}
+        />
       </div>
     );
   }
