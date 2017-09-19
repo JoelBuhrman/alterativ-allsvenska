@@ -4,7 +4,7 @@ let axios = require('axios')
 let cheerio = require('cheerio')
 
 
-api.listen(5000, function(req, res){
+api.listen(process.env.PORT || 5000, function(req, res){
   console.log("API listening on port 5000");
 })
 
@@ -54,7 +54,6 @@ api.get('/api/getTeams', (req, res) => {
     }
 
   })
-  console.log(teams);
   res.json(teams)
   })
 
