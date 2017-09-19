@@ -1,0 +1,35 @@
+@media screen and (max-device-width: 768px) and (orientation: portrait){
+
+  .realTable{
+    width: calc(100% - 20px);
+    padding: 0px 10px;
+  }
+
+  .fakeTable{
+    width: calc(100% - 20px);
+    padding: 0px 10px;
+  }
+
+  .team{
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-device-width: 320px) and (orientation: portrait){
+
+  .diff{
+    display: none;
+  }
+
+  .team{
+    width: 60%;
+  }
+
+  .games.titles{
+    margin-left: 70%;
+  }
+
+  .loading{
+    font-size: 40px;
+  }
+}

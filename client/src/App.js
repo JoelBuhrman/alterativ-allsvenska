@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './Responsive.css';
 import { bindActionCreators } from 'redux'
 import * as teamActions from './actions/teamActions'
 import PropTypes from 'prop-types'
