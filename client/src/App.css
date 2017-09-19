@@ -1,24 +1,167 @@
 .App {
+  overflow: auto;
+  position: relative;
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
   color: white;
+  font-family: 'Trebuchet MS';
+}
+.App:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background:
+  linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+  url('https://pbs.twimg.com/media/DDZzvrhXoAIfki0.jpg');
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+
+
 }
 
-.App-intro {
-  font-size: large;
+
+.realTable{
+  width: calc(50% - 20px);
+  float: left;
+  padding: 0px 10px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.fakeTable{
+  width: calc(50% - 20px);
+  display: inline-block;
+  padding: 0px 10px;
 }
+
+.row{
+  height: 30px;
+  padding-top: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-family: monospace;
+  padding-left: 10px;
+}
+
+.row:hover{
+  background-color: rgba(150, 0, 0 , 0.5);
+}
+
+.first{
+  border-bottom: 1px solid white;
+}
+
+.last{
+  border-top: 1px solid white;
+}
+
+.qual{
+  background-image: linear-gradient(to right, white 33%, rgba(255,255,255,0) 0%);
+  background-position: top;
+  background-size: 20px 2px;
+  background-repeat: repeat-x;
+}
+
+ul{
+  -webkit-padding-start: 0px;
+  margin-top: -3px;
+}
+
+li{
+  list-style: none;
+}
+
+
+.position{
+  width: 10%;
+  display: inline-block;
+}
+
+.team{
+  width: 50%;
+  display: inline-block;
+  font-size: 20px;
+  text-align: left;
+}
+
+.games{
+  width: 10%;
+  display: inline-block;
+}
+
+.diff{
+  text-align: center;
+  width: 10%;
+  display: inline-block;
+}
+
+.points{
+  text-align: center;
+  width: 10%;
+  display: inline-block;
+}
+
+.average{
+  width: 10%;
+  display: inline-block;
+}
+
+.header{
+  background-color: #002c64;
+  background: -webkit-linear-gradient(#002c64, #394555); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#002c64, #394555); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#002c64, #394555); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#002c64, #394555); /* Standard syntax */
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 5px;
+  margin-left: -10px;
+  width: calc(100% + 20px);
+}
+
+.titles{
+  font-size: 10px;
+  padding-top: 10px;
+}
+
+.loading{
+  font-size: 80px;
+  padding-top: calc(50vh - 40px);
+}
+.loading:after {
+
+  content: ' .';
+  animation: dots 1s steps(5, end) infinite;}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;}}

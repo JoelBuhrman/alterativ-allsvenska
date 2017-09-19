@@ -19,12 +19,19 @@ api.get('/api/getTeams', (req, res) => {
 
     if((i-1)%3 === 0){
       if((i-1)/3 < 8){
+
+        let home = $(elm).text().substring(0, $(elm).text().indexOf('-')-1)
+        home= home.substring(0, home.split(' ', 2).join(' ').length)
+
+        let away =  $(elm).text().substring($(elm).text().indexOf('-')+2, $(elm).text().length)
+        away= away.substring(0, away.split(' ', 2).join(' ').length)
+
         teams.push({
-          team: $(elm).text().substring(0, $(elm).text().indexOf('-')-1),
+          team: home,
           games: [],
         })
         teams.push({
-          team: $(elm).text().substring($(elm).text().indexOf('-')+2, $(elm).text().length),
+          team: away,
           games: [],
         })
       }

@@ -15,16 +15,27 @@ class App extends Component {
       .then(teams => this.props.getTeams(teams))
   }
   render() {
+
     return (
-      <div className="App">
-        <RealTable
-          teams= {this.props.teams}
-          addTeam={this.props.addTeam}
-        />
-      <FakeTable
-          teams= {this.props.fakeTableTeams}
-          removeTeam = {this.props.removeTeam}
-        />
+      <div>
+        {!this.props.teams.length>0 &&
+        <div className="App">
+          <div className="loading">Laddar</div>
+        </div>
+        }
+        {this.props.teams.length>0 &&
+          <div className="App">
+            <RealTable
+              teams= {this.props.teams}
+              addTeam={this.props.addTeam}
+            />
+            <FakeTable
+                teams= {this.props.fakeTableTeams}
+                removeTeam = {this.props.removeTeam}
+              />
+          </div>
+        }
+
       </div>
     );
   }
