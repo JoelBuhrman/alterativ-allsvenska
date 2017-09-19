@@ -2,11 +2,13 @@ var express = require('express')
 var api = express()
 let axios = require('axios')
 let cheerio = require('cheerio')
-const PORT = process.env.PORT || 5000;
+const path = require('path')
+const port = process.env.PORT || 5000;
 
+api.use(express.static(path.join(__dirname, 'client/build')));
 
-api.listen(PORT, function(req, res){
-  console.log("API listening on port "+process.env.PORT);
+api.listen(port, function(req, res){
+  console.log("API listening on port "+port);
 })
 
 api.get('/api/getTeams', (req, res) => {
