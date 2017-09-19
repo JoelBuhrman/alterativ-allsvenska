@@ -2,9 +2,10 @@ var express = require('express')
 var api = express()
 let axios = require('axios')
 let cheerio = require('cheerio')
+const PORT = process.env.PORT || 5000;
 
 
-api.listen(process.env.PORT || 5000, function(req, res){
+api.listen(PORT, function(req, res){
   console.log("API listening on port "+process.env.PORT);
 })
 
