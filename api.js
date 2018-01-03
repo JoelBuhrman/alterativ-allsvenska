@@ -13,7 +13,7 @@ api.listen(port, function(req, res){
 
 api.get('/api/getTeams', (req, res) => {
 
-  axios.get('http://svenskfotboll.se/allsvenskan/spelprogram/').then( (response) => {
+  axios.get('http://svenskfotboll.se/allsvenskan/tidigare-ar/resultat-2017/tabell-och-resultat/?scr=fixturelist&ftid=67049').then( (response) => {
   let $ = cheerio.load(response.data);
   let teams = []
   let lastGame = null
